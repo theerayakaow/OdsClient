@@ -1,4 +1,4 @@
-package com.clientmobileapp
+package com.ondemandsalaryclient
 
 import android.app.Application
 import com.facebook.react.PackageList
