@@ -1,97 +1,102 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# 📱 On-Demand Salary - Mobile Client
 
-# Getting Started
+This is the **React Native mobile app** for the On-Demand Salary platform.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+Employees can:
+- Sign in with phone number and OTP
+- Set and verify a 6-digit PIN
+- View available balance and transaction history
+- Submit withdrawal requests (up to 50% of available earnings)
+- Reset PIN or log out via settings
 
-## Step 1: Start Metro
+---
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## 🧱 Tech Stack
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+- React Native (CLI)
+- TypeScript
+- React Navigation
+- Context API
+- Keychain Storage
+- Mock API for local dev
 
-```sh
-# Using npm
-npm start
+---
 
-# OR using Yarn
-yarn start
+## 🚀 Getting Started
+
+### 1. Clone the project
+
+```bash
+git clone https://github.com/theerayakaow/OdsClient.git
+cd OdsClient
 ```
 
-## Step 2: Build and run your app
+### 2. Install dependencies
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
+```bash
+npm install
 ```
 
-### iOS
+### 3. Run the project
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+#### iOS
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
+```bash
+npx pod-install
+npx react-native run-ios
 ```
 
-Then, and every time you update your native dependencies, run:
+#### Android
 
-```sh
-bundle exec pod install
+```bash
+npx react-native run-android
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+> 🔗 Backend must run on: `http://localhost:3000`
 
-```sh
-# Using npm
-npm run ios
+---
 
-# OR using Yarn
-yarn ios
+## 📁 Folder Structure
+
+```
+src/
+├── components/     # Reusable components (e.g. ProfileHeader)
+├── context/        # Global state: AuthContext, PinContext
+├── hooks/          # Custom hooks: useUser, usePin, useAuth
+├── navigation/     # Stack & Tab navigators
+├── screens/        # UI screens (SignIn, Otp, Main, Withdraw, Settings)
+├── services/       # API service layer (axios config, API methods)
+├── types/          # Shared TypeScript types
+├── utils/          # Helpers (formatting, token utils)
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+---
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+## 🔐 Authentication Flow
 
-## Step 3: Modify your app
+1. Sign in with phone number → receive OTP (mocked)
+2. Enter OTP → receive token and proceed to set PIN
+3. Enter PIN to access app
+4. Reset PIN and logout available in Settings
 
-Now that you have successfully run the app, let's make changes!
+---
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+## 🧪 API & Dev Info
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+- Backend provided in `/server` repo
+- Test APIs with VS Code `REST Client` extension using `request.http`
+- Tokens stored securely with `react-native-keychain`
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+---
 
-## Congratulations! :tada:
+## ✅ Features Done
 
-You've successfully run and modified your React Native App. :partying_face:
+- [x] Phone sign-in with mock OTP
+- [x] OTP verification and auto-expiry
+- [x] PIN setup and verification
+- [x] Withdraw screen with amount restrictions
+- [x] Tab navigation (Home, Withdraw, Settings)
+- [x] Toast messages for success/failure
+- [x] Persist token and user info
 
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+---
