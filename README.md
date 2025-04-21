@@ -1,4 +1,4 @@
-# 📱 On-Demand Salary - Mobile Client
+# On-Demand Salary - Mobile Client
 
 This is the **React Native mobile app** for the On-Demand Salary platform.
 
@@ -11,7 +11,7 @@ Employees can:
 
 ---
 
-## 🧱 Tech Stack
+## Tech Stack
 
 - React Native (CLI)
 - TypeScript
@@ -22,18 +22,18 @@ Employees can:
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Clone the project
 
-```bash
+```
 git clone https://github.com/theerayakaow/OdsClient.git
 cd OdsClient
 ```
 
 ### 2. Install dependencies
 
-```bash
+```
 npm install
 ```
 
@@ -41,14 +41,14 @@ npm install
 
 #### iOS
 
-```bash
+```
 npx pod-install
 npx react-native run-ios
 ```
 
 #### Android
 
-```bash
+```
 npx react-native run-android
 ```
 
@@ -56,7 +56,7 @@ npx react-native run-android
 
 ---
 
-## 📁 Folder Structure
+##  Folder Structure
 
 ```
 src/
@@ -72,7 +72,7 @@ src/
 
 ---
 
-## 🔐 Authentication Flow
+##  Authentication Flow
 
 1. Sign in with phone number → receive OTP (mocked)
 2. Enter OTP → receive token and proceed to set PIN
@@ -81,7 +81,7 @@ src/
 
 ---
 
-## 🧪 API & Dev Info
+##  API & Dev Info
 
 - Backend provided in `/server` repo
 - Test APIs with VS Code `REST Client` extension using `request.http`
@@ -89,7 +89,7 @@ src/
 
 ---
 
-## ✅ Features Done
+##  Features Done
 
 - [x] Phone sign-in with mock OTP
 - [x] OTP verification and auto-expiry
