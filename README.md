@@ -104,16 +104,16 @@ src/
 ##  Unit Testing
 ```
 __tests__/
-├── hooks/                  # ทดสอบ custom hooks
+├── hooks/                  # Tests for custom hooks
 │   ├── useAuth.test.ts
 │   └── useUser.test.ts
 
-├── screens/                # ทดสอบแต่ละหน้าจอ (React Native screen)
+├── screens/                # Tests for individual screens (React Native screens)
 │   ├── MainScreen.test.tsx
 │   ├── WithdrawScreen.test.tsx
 │   └── SettingScreen.test.tsx
 
-└── App.test.tsx           # ทดสอบระดับ root component
+└── App.test.tsx            # Root-level component test
 ```
 ---
 
