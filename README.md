@@ -100,3 +100,37 @@ src/
 - [x] Persist token and user info
 
 ---
+
+##  Unit Testing
+```
+__tests__/
+├── hooks/                  # ทดสอบ custom hooks
+│   ├── useAuth.test.ts
+│   └── useUser.test.ts
+
+├── screens/                # ทดสอบแต่ละหน้าจอ (React Native screen)
+│   ├── MainScreen.test.tsx
+│   ├── WithdrawScreen.test.tsx
+│   └── SettingScreen.test.tsx
+
+└── App.test.tsx           # ทดสอบระดับ root component
+```
+---
+
+## Run All Tests
+```
+npm test
+# or
+npx jest
+```
+---
+## Run a Specific Test File
+```
+npm test -- __tests__/hooks/useUser.test.ts
+npm test -- __tests__/hooks/useAuth.test.ts
+npm test -- __tests__/screens/MainScreen.test.tsx
+npm test -- __tests__/screens/WithdrawScreen.test.tsx
+npm test -- __tests__/screens/SettingScreen.test.tsx
+npm test -- __tests__/App.test.tsx
+```
+---
