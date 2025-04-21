@@ -1,5 +1,5 @@
 import { navigate } from '@/navigation/navigationService';
-import { getAccessToken } from '@/utils/tokenStorage';
+import { getAccessToken } from '@/utils/tokenManager';
 
 import axios, {
     AxiosError,

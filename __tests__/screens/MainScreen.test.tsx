@@ -1,30 +1,33 @@
-import React from 'react';
+import React, { act } from 'react';
 import { render, waitFor } from '@testing-library/react-native';
 import MainScreen from '@/screens/MainScreen';
 
-jest.mock('@/hooks/useUser', () => () => ({
-    getProfile: jest.fn(() => Promise.resolve({
-        isSuccess: true,
-        data: {
-            user: {
-                uid: '1',
-                email: 'test@example.com',
-                firstname: 'Test',
-                lastname: 'User',
-                avatar: '',
+jest.mock('@/hooks/useUser', () => {
+    return () => ({
+        getProfile: jest.fn().mockResolvedValue({
+            isSuccess: true,
+            data: {
+                user: {
+                    uid: '1',
+                    firstname: 'John',
+                    lastname: 'Doe',
+                    email: 'john@example.com',
+                    avatar: '',
+                },
             },
-        },
-    })),
-    getTrans: jest.fn(() => Promise.resolve({
-        isSuccess: true,
-        data: {
-            trans: {
-                available: 10000,
-                transactions: [],
+        }),
+        getTrans: jest.fn().mockResolvedValue({
+            isSuccess: true,
+            data: {
+                trans: {
+                    available: 10000,
+                    transactions: [],
+                },
             },
-        },
-    })),
-}));
+        }),
+        logout: jest.fn(),
+    });
+});
 
 jest.mock('@/context/AuthContext', () => ({
     useAuthContext: () => ({
@@ -50,4 +53,5 @@ describe('MainScreen', () => {
             expect(getByText('No transactions yet.')).toBeTruthy();
         });
     });
+
 });

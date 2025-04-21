@@ -1,10 +1,10 @@
 import React, { createContext, useEffect, useState, useContext } from 'react';
 import {
-    isAuthenticated as checkToken,
+    isAuthenticated,
     logout as clearToken,
     storeTokenWithDecodedExpiry,
     getDecodedToken,
-} from '@/utils/tokenUtils';
+} from '@/utils/tokenManager';
 
 type AuthContextType = {
     isAuthenticated: boolean;
@@ -22,32 +22,29 @@ const AuthContext = createContext<AuthContextType>({
     authLoading: true,
     phoneNumber: null,
     userId: null,
-    login: async () => { },
-    logout: async () => { },
-    checkAuthStatus: async () => { },
-    setPhoneNumber: () => { },
+    login: async () => {},
+    logout: async () => {},
+    checkAuthStatus: async () => {},
+    setPhoneNumber: () => {},
 });
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [isAuthenticatedState, setIsAuthenticated] = useState(false);
     const [authLoading, setAuthLoading] = useState(true);
     const [phoneNumber, setPhoneNumber] = useState<string | null>(null);
     const [userId, setUserId] = useState<string | null>(null);
 
     const checkAuthStatus = async () => {
         setAuthLoading(true);
-    
         try {
-            const valid = await checkToken()
-    
+            const valid = await isAuthenticated();
             if (valid) {
                 const decoded = await getDecodedToken();
-    
                 setIsAuthenticated(true);
                 setPhoneNumber(decoded?.phone || null);
                 setUserId(decoded?.userUid || null);
             } else {
-                await logout(); 
+                await logout();
             }
         } catch (err) {
             console.warn('Failed to check auth:', err);
@@ -81,14 +78,14 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     return (
         <AuthContext.Provider
             value={{
-                isAuthenticated,
+                isAuthenticated: isAuthenticatedState,
                 authLoading,
                 phoneNumber,
                 userId,
                 login,
                 logout,
                 checkAuthStatus,
-                setPhoneNumber
+                setPhoneNumber,
             }}
         >
             {children}
