@@ -83,7 +83,7 @@ src/
 
 ##  API & Dev Info
 
-- Backend provided in `/server` repo
+- Backend provided in `/OdsServer` repo
 - Test APIs with VS Code `REST Client` extension using `request.http`
 - Tokens stored securely with `react-native-keychain`
 

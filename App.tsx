@@ -9,7 +9,7 @@ import { PinProvider } from '@/context/PinContext';
 
 const App = () => {
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
+    <GestureHandlerRootView style={{ flex: 1 }} testID="app-root">
       <SafeAreaProvider>
         <AuthProvider>
           <PinProvider>
